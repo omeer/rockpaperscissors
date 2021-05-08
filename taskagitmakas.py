@@ -1,123 +1,93 @@
 from pyfiglet import Figlet
 from time import sleep
 import random
-#2 kisilik tas kagit makas oyunu kodluyoruz
+
 
 info = Figlet(font='big')
-print(info.renderText('Tas Kagit Makas\nOyunu'))
+print(info.renderText('Rock Paper Scissors\nGame'))
+def resulttext():
+	info = Figlet(font='big')
+	print(info.renderText('Result'))
 
-def sonuctext():
-	info = Figlet(font='big')
-	print(info.renderText('Sonuc'))
-def puantext():
-	info = Figlet(font='big')
-	print(info.renderText('Puanlar'))
-def secimtext():
-	info = Figlet(font='big')
-	print(info.renderText('Secim'))
 
 #oyun hakkında bilgi verelim
 print("""
 ----------------OYUN HAKKINDA BİLGİLER------------------
+-TR-
+Taş için 'rock' yazmanız gereklidir
+Makas için 'scissors' yazmanız gereklidir
+Kağıt için 'paper' yazmanız gereklidir
 
-Taş için 'T' harf tuşuna basmanız yeterlidir.
-Makas için 'M' harf tuşuna basmanız yeterlidir
-Kağıt için 'K' harf tuşuna basmanız yeterlidir.
+-EN-
+rock
+scissors
+paper
+
+ ! you have to choose the word you want and write it that way !
   """)
 
 def computer_random():
 	number=random.randint(1,3)
 	if number==1:
-		return "T"
+		return "rock"
 	elif number==2:
-		return "K"
+		return "paper"
 	else:
-		return "M"
-
-bilgpuan=0
-benimpuan=0
+		return "scissors"
+computerscore=0
+myscore=0
 while True:
 	print("_____________________________________")
 	print("\n")
-	secim=input("Tas Kagit Makas ? :")
+	userselection=input("rock paper scissors ? :")
 	print("_____________________________________")
-	secimtext()
+	resulttext()
 	print("-------------------------------------")
-	print("Sizi Seçiminiz : {} ".format(secim))
+	print("User         : {} ".format(userselection))
 	print("\n")
 	computerrandom=computer_random()
-	print("Bilgisayar     : ",computerrandom)
+	print("Computer     : ",computerrandom)
 	print("-------------------------------------")
-	sonuctext()
-	print("##############################")
-	if secim==computerrandom:
-		print("BERABERE")
-		print("##############################")
-		print("\n")
-		puantext()
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
 
+	if userselection==computerrandom:
+		print("Draw Score")
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
-	elif secim=='T' and computerrandom=="K":
-		print("Bilgisayar Kazandi...")
-		print("##############################")
-		print("\n")
-		puantext()
-		bilgpuan=bilgpuan+1
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
+	elif userselection=="rock" and computerrandom=="scissors":
+		print("You WON !...")
+		myscore=myscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
+	elif userselection=="rock" and computerrandom=="paper":
+		print("the computer won...")
+		computerscore=computerscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
-	elif secim=='T' and computerrandom=="M":
-		print("Siz Kazandiniz...")
-		print("##############################")
-		print("\n")
-		puantext()
-		benimpuan=benimpuan+1
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
+	elif userselection=="scissors" and computerrandom=="paper":
+		print("You WON !...")
+		myscore=myscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
-	elif secim=='M' and computerrandom=="K":
-		print("Siz Kazandiniz...")
-		print("##############################")
-		print("\n")
-		puantext()
-		benimpuan=benimpuan+1
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
+	elif userselection=="scissors" and computerrandom=="rock":
+		print("the computer won...")
+		computerscore=computerscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
-	elif secim=='M' and computerrandom=="K":
-		print("Siz Kazandiniz...")
-		print("##############################")
-		print("\n")
-		puantext()
-		benimpuan=benimpuan+1
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
+	elif userselection=="paper" and computerrandom=="rock":
+		print("You WON !...")
+		myscore=myscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 
-	elif secim=='K' and computerrandom=="T":
-		print("Siz Kazandiniz...")
-		print("##############################")
-		print("\n")
-		puantext()
-		benimpuan=benimpuan+1
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
-	elif secim=='K' and computerrandom=="M":
-		print("Bilgisayar Kazandi...")
-		print("##############################")
-		print("\n")
-		puantext()
-		print("Bilgisayar Puanı :{}".format(bilgpuan))
-		print("Benim Puanım     :{}".format(benimpuan))
-
+	elif userselection=="paper" and computerrandom=="scissors":
+		print("the computer won...")
+		computerscore=computerscore+1
+		print("My Score       :{}".format(myscore))
+		print("Computer Score :{}".format(computerscore))
 	else:
-		print("Yanlış Tuşlama Girdiniz..!")
-		
-
-		
-
-
-
-
+		print("YOU ENTERED THE WRONG WORD !")
