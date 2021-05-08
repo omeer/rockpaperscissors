@@ -1,7 +1,7 @@
 # rockpaperscissors
 
 
-Python ile Taş Kağıt Makas oyunu kodladım
+Python ile basit bir Taş Kağıt Makas oyunu kodladım
 
 I coded a simple 'Rock, Paper, Scissors' game with Python
 
