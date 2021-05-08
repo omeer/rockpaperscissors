@@ -1,2 +1,4 @@
 # rockpaperscissors
-Taş Kağıt Makas
+
+
+Python ile Taş Kağıt Makas oyunu kodladım
